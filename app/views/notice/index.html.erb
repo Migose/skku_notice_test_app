@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Writer</th>
+        <th>College</th>
+    </tr>
+    <% @notices.each do |notice|%>
+        <tr>
+            <td><%= notice.id %></td>
+            <td><%= link_to(notice.title, "/notice/show/#{notice.id}") %></td>
+            <td><%= notice.writer %></td>
+            <td><%= Group.find(notice.group_id).name%></td>
+        </tr>
+    <% end %>
+</table>

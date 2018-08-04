@@ -1,0 +1,12 @@
+
+<p><%= @notice.id %></p>
+<p><%= @notice.title %></p>
+<div><%= @notice.content.html_safe %></div>
+<hr>
+<% @images.each do |image| %>
+    <%= image_tag image.link %>
+<% end %>
+<hr>
+<% @attacheds.each do |attached|%>
+    <p><%= link_to(attached.name, attached.link) %></p>
+<% end %>
