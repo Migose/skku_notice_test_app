@@ -44,12 +44,14 @@ def cs()
         view = notice_json['post']['views']
         writer = notice_json['post']['name']
         date = notice_json['post']['time']
+        notice_link = "http://cs.skku.edu/open/notice/view/#{id}"
         Notice.create(
                 :title => title,
                 :writer => writer,
                 :date => date,
                 :content => content,
                 :view => view,
+                :link => notice_link,
                 :scrap_count => 0, #TODO: 물어보기
                 :group_id => 15
                 )

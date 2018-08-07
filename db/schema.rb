@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2018_07_31_082007) do
     t.datetime "date"
     t.integer "view"
     t.integer "scrap_count"
+    t.string "link"
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

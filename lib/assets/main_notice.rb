@@ -9,7 +9,8 @@ def main_notice()
         links = doc.css('tbody tr td.left a')
         links.each do |link|
             notice_url = link['href']
-            notice_doc = Nokogiri::HTML(open("https://www.skku.edu/skku/campus/skk_comm/notice01.do"+notice_url))
+            notice_link = "https://www.skku.edu/skku/campus/skk_comm/notice01.do"+notice_url
+            notice_doc = Nokogiri::HTML(open(notice_link))
             
             #Notice 정보
             title = notice_doc.css('em.ellipsis').text
@@ -19,6 +20,7 @@ def main_notice()
     
             #Notice 저장
             Notice.create(
+                :link => notice_link,
                 :title => title,
                 :writer => writer,
                 :date => date,

@@ -8,7 +8,8 @@ def icc()
         links = doc.css("td.board-title a")
         
         links.each do |link|
-            notice_doc = Nokogiri::HTML(open("http://icc.skku.ac.kr/icc_new/"+link['href']))
+            notice_url = "http://icc.skku.ac.kr/icc_new/"+link['href']
+            notice_doc = Nokogiri::HTML(open(notice_url))
     
             #Notice 정보
             title = notice_doc.css("td#subject").text
@@ -19,6 +20,7 @@ def icc()
             
             #Notice 저장
             Notice.create!(
+                :link => notice_url,
                 :title => title,
                 :writer => writer,
                 :date => date,

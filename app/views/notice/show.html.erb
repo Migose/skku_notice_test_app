@@ -1,6 +1,16 @@
-
-<p><%= @notice.id %></p>
-<p><%= @notice.title %></p>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Writer</th>
+    </tr>
+    <tr>
+        <td><%= @notice.id %></td>
+        <td><%= @notice.title %></td>
+        <td><%= @notice.writer %></td>
+    </tr>
+</table>
+<p><%= link_to('원문보기', @notice.link) %></p>
 <div><%= @notice.content.html_safe %></div>
 <hr>
 <% @images.each do |image| %>

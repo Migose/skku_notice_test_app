@@ -7,7 +7,7 @@ class CreateNotices < ActiveRecord::Migration[5.2]
       t.datetime:date
       t.integer:view
       t.integer:scrap_count
-      
+      t.string:link
       t.belongs_to :group
       t.timestamps
     end

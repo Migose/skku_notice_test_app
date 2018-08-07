@@ -10,7 +10,8 @@ def med()
     
         links.each do |link|
             notice_url = link['href']
-            notice_doc = Nokogiri::HTML(open("http://www.skkumed.ac.kr/"+notice_url))
+            notice_link ="http://www.skkumed.ac.kr/"+notice_url 
+            notice_doc = Nokogiri::HTML(open(notice_link))
             #Notice 정보
             contents = notice_doc.css('td.sub_text')
             title = contents[0].text
@@ -21,6 +22,7 @@ def med()
     
             #Notice 저장
             Notice.create(
+                :link => notice_link,
                 :title => title,
                 :writer => writer,
                 :date => date,

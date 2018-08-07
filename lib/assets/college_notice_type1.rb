@@ -26,6 +26,7 @@ def college_crawling(group_id, url)
             date = table_list[2].text
             view = table_list[3].text
             content = notice_doc.css('div#article_text')
+            notice_link = notice_url+link
             
             
             #Notice 저장
@@ -36,7 +37,8 @@ def college_crawling(group_id, url)
                 :content => content,
                 :view => view,
                 :scrap_count => 0, #TODO: 물어보기
-                :group_id => group_id
+                :group_id => group_id,
+                :link => notice_link
                 #:keyword_id => 1, #TODO: ??
                 #:user_id => 1 #TODO: ??
                 )

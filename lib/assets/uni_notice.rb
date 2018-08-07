@@ -11,6 +11,7 @@ require './lib/assets/icc_notice'
 require './lib/assets/main_notice'
 require './lib/assets/med_notice'
 require './lib/assets/pharm_notice'
+require './lib/assets/ba_notice'
 
 colleges = [
     [2,"http://scos.skku.edu/scos/menu_4/sub_04_01_01.jsp?mode=list&board_no=69&pager.offset="],
@@ -35,3 +36,4 @@ icc()
 main_notice()
 med()
 pharm()
+ba()

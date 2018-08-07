@@ -20,7 +20,8 @@ def pharm()
         links = list_doc.css('tr a')
         links.each do |link|
             id = link['href'].scan(/\d+/).first
-            notice_doc = Nokogiri::HTML(open("http://pharm.skku.edu/board/view.jsp?curNum=#{id}"))
+            notice_link = "http://pharm.skku.edu/board/view.jsp?curNum=#{id}"
+            notice_doc = Nokogiri::HTML(open(notice_link))
             title = notice_doc.css('tr th').text
             writer = notice_doc.css("td.spoqa").text.scan(/｜(.+)날짜/).first.first
             date = notice_doc.css("td.spoqa").text.scan(/날짜｜(.+)조회수/).first.first.to_datetime
@@ -28,6 +29,7 @@ def pharm()
             content = notice_doc.css('div#contents')
             
             Notice.create(
+                :link => notice_link,
                 :title => title,
                 :writer => writer,
                 :date => date,
