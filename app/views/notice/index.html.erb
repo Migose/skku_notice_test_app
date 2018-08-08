@@ -4,6 +4,7 @@
         <th>Title</th>
         <th>Writer</th>
         <th>College</th>
+        <th>Date</th>
     </tr>
     <% @notices.each do |notice|%>
         <tr>
@@ -11,6 +12,7 @@
             <td><%= link_to(notice.title, "/notice/show/#{notice.id}") %></td>
             <td><%= notice.writer %></td>
             <td><%= Group.find(notice.group_id).name%></td>
+            <td><%= notice.date %></td>
         </tr>
     <% end %>
 </table>

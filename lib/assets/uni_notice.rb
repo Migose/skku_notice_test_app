@@ -27,13 +27,18 @@ colleges = [
     [12,"http://icon.skku.edu/icon/menu_5/sub5_1.jsp?mode=list&board_no=122&pager.offset="]
     ]
 
-colleges.each do |college|
+while true do
+    colleges.each do |college|
     college_crawling(college[0],college[1])
+    end
+    
+    cs()
+    icc()
+    main_notice()
+    med()
+    pharm()
+    ba()
+    
+    puts 'Sleep'
+    sleep(5.minutes)
 end
-
-cs()
-icc()
-main_notice()
-med()
-pharm()
-ba()
