@@ -18,12 +18,13 @@ def cs()
         }
     )
     req_json = JSON.parse(list_req.body)
+    new_notice_count = 0
     if "http://cs.skku.edu/open/notice/view/"+req_json['aaData'].first['id'].to_s != Notice.where(:group_id => 15).last.link
         puts "공지가 업데이트 되었습니다."
         req_json['aaData'].take(10).reverse.each do |notice|
             id = notice['id']
             
-            if Notice.exists?(link: "http://cs.skku.edu/open/notice/view/"+id)
+            if Notice.exists?(link: "http://cs.skku.edu/open/notice/view/"+id.to_s)
                 next
             else
                 notice_uri = URI("http://cs.skku.edu/ajax/board/view/notice/#{id}")

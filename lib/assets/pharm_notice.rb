@@ -15,6 +15,7 @@ def pharm()
             "srch_word"=> ""
             }
         )
+        new_notice_count = 0
         list_doc = Nokogiri::HTML(list_req.body)
         a_tags = list_doc.css('tr a')
         if ("http://pharm.skku.edu/board/view.jsp?curNum="+a_tags.first['href'].scan(/\d+/).first) != Notice.where(:group_id => 16).last.link
